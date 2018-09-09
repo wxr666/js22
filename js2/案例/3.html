@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>添加li，删除，变色</title>
+    <style>
+        a,li,#btn{
+            cursor:pointer;
+        }
+        li{
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id='box'>
+    <input type="button" value='点击按钮' id='btn'>
+    <ul id='list'>
+
+    </ul>
+    <script>
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        var list=document.getElementById('list');
+        btn.onclick=function(){
+            var val=box.value;
+            //创建了Li
+            var li=document.createElement('li');
+            li.innerHTML=val+'<a>删除</a>';
+            list.appendChild(li);
+            var aa=document.getElementsByTagName('a')
+            for(var i=0;i<aa.length;i++){
+                aa[i].onclick=function(){
+                    list.removeChild(this.parentNode)
+                }
+            }
+            //事件代理有兼容问题
+            list.onclick=function(ev){
+                var ev=ev||event;
+                var target=ev.target||ev.srcElement;
+                if(target.tagName==='LI'){//事件代理、委托
+                    target.style.background='red'
+                }
+            }
+            //超出5行自动删除第一行
+            if(list.children.length===5){
+                list.removeChild(list.firstElementChild)
+            }
+            //每输出一个li自动清空表单内容
+            box.value='';
+        }
+    </script>
+</body>
+</html>

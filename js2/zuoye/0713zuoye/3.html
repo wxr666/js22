@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr='hiewofjwldaspohvsdksfiewwf';
+        function text(arr){
+            var arr1=arr.split('').sort().join('');
+            var re=/(\w)\1+/g;
+            var num=0;
+            var val='';
+            arr1.replace(re,function($0,$1){
+                if($0.length>num){
+                    num=$0.length;
+                    val=$1;
+                }
+            });
+            return{
+                   num:num,
+                   val:val
+                }
+        }
+        console.log(text(arr));
+    </script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>获取元素的样式</title>
+</head>
+<body>
+   <div id='box' style='width:100px'>
+
+   </div>
+   <script>
+       var box=document.getElementById('box');
+       function getStyle(obj,n){
+           if(obj.currentStyle){
+            return obj.currentStyle[n];
+           }else{
+            return getComputedStyle(obj,null)[n]
+           }
+       }
+       alert(getStyle(box,'width'))
+
+   </script>
+</body>
+</html>

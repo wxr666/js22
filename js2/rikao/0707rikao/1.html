@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div id='div1' class='div2 div3 div4'>
+        <div id='div2'></div>
+        <div id='div3'></div>
+    </div>
+    <script>
+        var div1=document.getElementById('div1');
+        var div2=document.getElementById('div2');
+        var div3=document.getElementById('div3');
+        function byid(id){
+            return document.getElementById(id);
+        }
+        //console.log(byid('div1'));
+        function hasClass(val,sclass){
+            var arr=val.className.split(' ');
+            //console.log(arr)
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]==sclass){
+                    return true;
+                }else{
+                    return false;
+                }
+            }
+
+        }
+        //console.log(hasClass(byid('div1'),'div2'));
+        function addClass(val,sclass){
+            var arr=[];
+           if(!hasClass(val,sclass)){
+            arr.className=sclass;
+           }else{
+            arr='class='+sclass;
+           }
+           return arr;
+        }
+        console.log(addClass(byid('div1'),'div2'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+    <ul id='list'>
+        <li>11</li>
+        <li>22</li>
+        <li>33</li>
+    </ul>
+    <script>
+        var list=document.getElementById('list');
+        var lis=document.getElementsByTagName('li');
+        function insertAfter(list){
+            var val=document.createElement('li');
+            val.innerHTML='大大';
+               if(list.childNodes(0)){
+                 list+=' '+appendChild(val);
+               }else{
+                  list+=appendChild(val);
+               }
+            return list;
+        }
+        console.log(insertAfter(list))
+
+
+
+    </script>
+</body>
+</html>

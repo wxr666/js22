@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <div id='box' class='n1 n2 n3'>
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <script>
+        //获取id
+        function getId(obj){
+            return document.getElementById(obj)
+        }
+        //console.log(getId('box'))
+
+
+
+
+        //查找有没有sclass
+        function hasclass(obj,sclass){
+            var arr=obj.className.split(' ');
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]===sclass){
+                    return true;
+                }
+            }
+            return false;
+        }
+        //console.log(hasclass(getId('box'),'n4'))
+
+
+         //添加class
+        function addclass(obj,sclass){
+           if(!obj.className){
+            obj.className=sclass;
+           }else{
+            if(!hasclass(obj,sclass)){
+                obj.className+=' '+sclass;
+            }
+           }
+           return obj;
+
+        }
+        //console.log(addclass(getId('box'),'n3'))
+
+        //删除sclass
+        function removeClass(obj,sclass){
+           if(hasclass(obj,sclass)){
+            var arr1=[];
+            var arr=obj.className.split(' ');
+            for(var i=0;i<arr.length;i++){
+                if(arr[i]!=sclass){
+                    arr1.push(arr[i]);
+                }
+            }
+           }
+           return arr1.join(' ');
+        }
+        //console.log(removeClass(getId('box'),'n3'))
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        /*var str='font-size-border';
+        function text(str){
+           var re=/-(\w)/g;
+          var txt = str.replace(re,function($0,$1){
+           return  $1.toUpperCase();
+           })
+          return txt;
+        }
+        console.log(text(str));*/
+    </script>
+</body>
+</html>

@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Document</title>
+  <style>
+    *{
+      margin:0;
+      padding:0;
+      list-style:none;
+    }
+    #box{
+      width: 1200px;
+      height: 450px;
+      overflow: hidden;
+      margin:30px auto;
+      position:relative;
+    }
+    ul{
+      width: 3600px;
+      height: 450px;
+      position:absolute;
+      top:0;
+      left:0;
+      transition:0.5s;
+    }
+    ul li{
+      float:left;
+    }
+    ul li img{
+      width: 1200px;
+      height: 450px;
+    }
+  p{
+     position:absolute;
+     bottom:5%;
+     right:5%;
+  }
+  p a{
+    width: 10px;
+    height: 10px;
+    text-align:center;
+    text-decoration:none ;
+    line-height:25px;
+    list-style:none;
+    border:2px solid white;
+    margin-right:5px;
+    border-radius:50%;
+    float:left;
+  }
+  p a.active{
+    background:white;
+  }
+  span{
+    display: inline-block;
+    font-size:50px;
+    color:white;
+    cursor: pointer;
+  }
+  #right{
+     position:absolute;
+     bottom:40%;
+     right:1%;
+  }
+  #left{
+     position:absolute;
+     bottom:40%;
+     left:20%;
+  }
+
+  #erji{
+    width: 234px;
+    height: 100%;
+    background:rgba(7, 17, 27, 0.5);
+    position:absolute;
+   top:0;
+   left:0;
+    z-index: 1;
+    opacity: 0.5;
+ }
+.menu-item{
+ height: 64px;
+ line-height: 66px;
+ cursor: pointer;
+ position: relative;
+ z-index: 2;
+ font-size:20px;
+ }
+ .menu-item b{
+  color:white;
+ }
+ /* .menu-item a{
+ display: block;
+ color: #fff;
+ padding: 0 8px;
+ border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+ height: 63px;
+ font-size:16px;
+ } */
+ .menu-item:last-child a{
+ border-bottom:none;
+ }
+
+  </style>
+</head>
+<body>
+  <div id='box'>
+        <div id='erji'>
+           <div class='menu-item'>
+
+                <b>手机、配件</b>
+
+          </div>
+          <div class='menu-item'>
+
+                <b>电脑</b>
+
+          </div>
+          <div class='menu-item'>
+
+                <b>家用电器</b>
+
+          </div>
+          <div class='menu-item'>
+
+              <b>家具</b>
+
+          </div>
+
+        </div>
+      <ul id='img'>
+        <li><img src="img/bg1.jpg" alt=""></li>
+        <li><img src="img/bg2.jpg" alt=""></li>
+        <li><img src="img/bg3.jpg" alt=""></li>
+      </ul>
+      <p id='anniu'>
+        <a href="#"></a>
+        <a href="#"></a>
+        <a href="#"></a>
+      </p>
+      <span id='left'> < </span>
+      <span id='right'> > </span>
+  </div>
+  <script>
+    var box=document.getElementById('box');
+    var img=document.getElementById('img');
+    var lis=document.getElementsByTagName('li');
+    var aa=document.getElementsByTagName('a');
+    var num=0;
+    var timer=setInterval(fn,1000);
+    function text(){
+      img.style.left=-num*1200+'px';
+      for(var i=0;i<aa.length;i++){
+        aa[i].className='';
+      }
+      aa[num].className='active';
+    }
+    //function fn(){
+    //   num++;
+    //   if(num>2){
+    //       num=0;
+    //   }
+    //   text();
+    //}
+    box.onmouseover=function(){
+      clearInterval(timer);
+    }
+    box.onmouseout=function(){
+      timer=setInterval(fn,1000);
+    }
+    for(var i=0;i<aa.length;i++){
+        aa[i].index=i;
+        aa[i].onclick=function(){
+            num=this.index;
+            text();
+        }
+     }
+    left.onclick=function(){
+      num--;
+      if(num<0){
+        num=2;
+        text();
+      }
+      text();
+    }
+    right.onclick=function(){
+      num++;
+      if(num>2){
+        num=0;
+        text();
+      }
+      text();
+    }
+  </script>
+</body>
+</html>

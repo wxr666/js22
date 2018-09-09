@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入QQ号" id='box'>
+    <input type="button" id='btn' value='判断'>
+    <script>
+        var box=document.getElementById('box');
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+            var val=box.value;
+            var re=/^[1-9]\d{5,11}$/;
+            if(re.test(val)){
+                alert('是一个QQ号')
+            }else{
+                alert('不是一个QQ号')
+            }
+        }
+
+    </script>
+</body>
+</html>

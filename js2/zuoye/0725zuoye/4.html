@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>封装trim方法</title>
+</head>
+<body>
+    <script>
+        var arr='  从前有个城堡   ';
+        var arr1='  灰太狼一直在努力抓羊  ';
+
+        function text(obj){
+           var re=/\s+|\s+/g;
+           var newArr=arr.replace(re,'');
+           return newArr;
+        }
+        var a=text(arr)
+        console.log('('+a+')')
+        console.log('('+arr+')')
+    </script>
+</body>
+</html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>模糊搜索</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        body{
+            margin:30px;
+        }
+        #box{
+             width: 260px;
+             height: 30px;
+             outline:none;
+        }
+        #oul{
+            width: 260px;
+            border:1px solid #ccc;
+        }
+        #oul a{
+            height: 30px;
+            line-height:30px;
+            display:block;
+            border-bottom:1px solid #ccc;
+            padding-left:10px;
+            text-decoration:none;
+        }
+         #oul a:hover{
+            background:skyblue;
+            color:white;
+            font-size:24px;
+         }
+    </style>
+</head>
+<body>
+   <input type="text" id='box'>
+   <ul id='oul'></ul>
+   <script>
+       var box=document.getElementById('box');
+       var oul=document.getElementById('oul');
+       var obj = [
+             { "text": "中国" },
+             { "text": "中国银行" },
+             { "text": "中国农商银行" },
+             { "text": "中国邮政银行" },
+             { "text": "中国工商银行" },
+             { "text": "中国交通银行" },
+             { "text": "中国建筑银行" },
+             { "text": "中国农业银行" },
+             { "text": "中国人民银行" },
+         ]
+        box.onkeyup=function(){
+            var val=this.value;
+            if(!val){
+                oul.innerHTML='';
+                return false;
+            }
+            oul.innerHTML='';
+            for(var i=0;i<obj.length;i++){
+                var text=obj[i].text;
+                if(text.indexOf(val)>=0){
+                    var oli=document.createElement('li');
+                    oli.innerHTML='<a href="javascript:;">'+text+'</a>';
+                    oul.appendChild(oli);
+                }
+            }
+        }
+   </script>
+</body>
+</html>

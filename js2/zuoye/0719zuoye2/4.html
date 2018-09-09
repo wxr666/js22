@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //正则发法
+        /*var arr='assssjdssskssalsssdkjsssdss';
+        var arr1=arr.split('').sort().join('');
+        console.log(arr1)
+        var re=/(\w)\1+/g;
+        var val='';
+        var num=0;
+        arr1.replace(re,function($0,$1){
+            //console.log($0)
+            //console.log($1)
+            if($0.length>num){
+                num=$0.length
+                val=$1;
+            }
+        })
+        console.log(num)
+        console.log(val)*/
+
+
+
+        //用字符串方法
+        var arr='assssjdssskssalsssdkjsssdss';
+        function text(arr){
+            var val='';
+            var num=0;
+           for(var i=0;i<arr.length;i++){
+            var arr1=arr.split(arr[i]);
+            if(arr1.length-1>num){
+                num=arr1.length-1;
+                val=arr[i];
+            }
+           }
+           return{
+               num:num,
+               val:val
+           }
+        }
+        console.log(text(arr));
+    </script>
+</body>
+</html>

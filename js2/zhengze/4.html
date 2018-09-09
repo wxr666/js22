@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>去掉标签</title>
+</head>
+<body>
+    <p>替换前</p>
+    <textarea></textarea>
+    <p>替换后</p>
+    <textarea></textarea><br/>
+    <input type="button" value="替换按钮" id='btn'>
+    <script>
+        //用变量存储text1
+        //先用正则，
+        //用替换'';
+        //text1=*
+        var btn=document.getElementById('btn');
+        var text=document.getElementsByTagName('textarea');
+        btn.onclick=function(){
+            var val=text[0].value;
+            var re=/<[^>]+>/g;
+            var arr1=val.replace(re,'');
+            text[1].value=arr1;
+        }//<h3>标题</h3>:文本内容
+    </script>
+</body>
+</html>

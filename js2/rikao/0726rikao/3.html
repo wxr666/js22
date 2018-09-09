@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       var str='abcdefgaaass';
+       var str1=str.split('').sort().join('')
+         var re=/(\w)\1+/g;
+         var max=0;
+         var n='';
+         str1.replace(re,function($0,$1){
+            if(max<$0.length){
+              max=$0.length;
+              n=$1;
+            }
+
+         })
+         console.log(n)
+         console.log(max)
+
+
+
+       /*var str='abcdefgaaass';
+       function text(str){
+          var max=0;
+          var n='';
+          for(var i=0;i<str.length;i++){
+            var str1=str.split(str[i])
+            if(str1.length-1>max){
+                max=str1.length-1;
+                n=str[i]
+            }
+          }
+         return{
+              max:max,
+              n:n
+         }
+       }
+       console.log(text(str))*/
+   </script>
+</body>
+</html>

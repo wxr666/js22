@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>娃哈哈价格</title>
+    <style>
+        p{
+            margin:20px;
+        }
+    </style>
+</head>
+<body>
+    <p>
+        <b>娃哈哈饮料</b>
+        <i>10</i>元
+        <span>
+           <button>-</button>
+           <input type="text" value="3">
+           <button>+</button>
+        </span>
+        <strong>30</strong>
+        <a href='javascript:;'>删除</a>
+    </p>
+    <script>
+       var aa=document.getElementsByTagName('i')[0];
+       var input=document.getElementsByTagName('input')[0];
+       var button1=document.getElementsByTagName('button')[0];
+       var button2=document.getElementsByTagName('button')[1];
+       var strong=document.getElementsByTagName('strong')[0];
+       button2.onclick=function(){
+        input.value++;
+        var val=input.value;
+        if(val>5){
+            num=5;
+        }
+        strong.innerHTML=aa.innerHTML * val;
+       }
+       button1.onclick=function(){
+        input.value--;
+        var val=input.value;
+        strong.innerHTML=aa.innerHTML * val;
+        if(val<1){
+           var m=confirm('您确定不够买了吗？');
+           if(m){
+            val=1;
+           }
+        }
+       }
+    </script>
+</body>
+</html>

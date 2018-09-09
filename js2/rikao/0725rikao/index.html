@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=0, minimum-scale=1.0, maximum-scale=1.0">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<link rel="stylesheet" href="css/style.css">
+	<style>
+       select{
+       	width: 300px;
+       	height: 30px;
+        margin:20px 10px;
+       }
+       #box1,#box2{
+       	display: flex;
+       	justify-content:space-between;
+       }
+	</style>
+</head>
+<body>
+	 <div id='box1'>
+	      <select>
+	      	    <option value="">北京</option>
+	     	    <option value="">上海</option>
+	     	    <option value="">天津</option>
+	     	    <option value="">三亚</option>
+	      </select>
+           <select>
+	      	    <option value="">临汾</option>
+	     	    <option value="">运城</option>
+	     	    <option value="">洛阳</option>
+	     	    <option value="">海口</option>
+	      </select>
+	 </div>
+	 <div id='box2'>
+	      <select>
+	      	    <option value="">苹果</option>
+	     	    <option value="">oppo</option>
+	     	    <option value="">三星</option>
+	     	    <option value="">诺基亚</option>
+	      </select>
+           <select>
+	      	    <option value="">iPhone5</option>
+	     	    <option value="">iPhone6</option>
+	     	    <option value="">iPhone7</option>
+	     	    <option value="">iPhone5s</option>
+	      </select>
+	 </div>
+	<script src="js/data.js">
+	     var box1=document.getElementById('box1');
+	     var box2=document.getElementById('box2');
+         var select=box1.getElementsByClassName('select');
+         var option=box1.getElementsByClassName('option');
+         for(var i=0;i<input.length;i++){
+         	input[0].onclick=function(){
+         	   input[1].style.display='block';
+          }
+         }
+
+	</script>
+</body>
+</html>

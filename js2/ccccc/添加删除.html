@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>您就诊过的医院</title>
+    <style>
+        li{
+            margin:5px;
+        }
+    </style>
+</head>
+<body>
+    <ul id='list'>
+        <li><input type="text" placeholder="您就诊过的医院"></li>
+    </ul>
+    <input type="button" value="点击添加" id='btn'>
+    <script>
+        var list=document.getElementById('list');
+        var btn=document.getElementById('btn');
+        var num=0;
+        btn.onclick=function(){
+            if(num<5){
+                var lis=document.createElement('li');
+                //创建一个输入框
+                var inp1=document.createElement('input');
+                inp1.placeholder="您就诊过的医院";
+                inp1.type='text';
+                lis.appendChild(inp1);
+                //创建一个删除框
+                var inp2=document.createElement('input');
+                inp2.value="删除";
+                inp2.type='button';
+                lis.appendChild(inp2);
+                list.appendChild(lis);
+                num++;
+                if(num>=5){
+                 this.style.display='none'
+                }
+       }
+           inp2.onclick=function(){
+             list.removeChild(this.parentNode);
+             num--;
+             if(num<5){
+                 btn.style.display='block'
+                }
+            }
+
+
+
+           //oul.appendChild(lis);
+        }
+    </script>
+</body>
+</html>

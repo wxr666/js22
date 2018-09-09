@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #box{
+            width: 200px;
+            margin:20px auto;
+        }
+        #text3{
+            width: 60px;
+            height: 30px;
+        }
+        input{
+            margin-bottom:10px;
+        }
+        span{
+            display:inline-block;
+            width: 50px;
+            height: 23px;
+            border:2px solid #ccc;
+            border-radius:3px;
+        }
+        strong{
+            cursor:pointer;
+            font-size:14px;
+            color:blue;
+        }
+        #btn{
+            width: 88%;
+            height: 30px;
+            color:white;
+            background:skyblue;
+            border-radius:3px;
+            text-align: center;
+            outline:none;
+            border:none;
+            font-size:20px;
+        }
+        #cw1,#cw{
+            width: 88%;
+            height: 15px;
+            color:red;
+            display:none;
+            background:pink;
+            outline:none;
+            border:none;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+       <input type="text" placeholder="zhaoxiaoru" id='text1'>
+       <input type="text" value='您输入的用户名和密码不匹配' id='cw'>
+       <input type="password" id='text2'>
+       <input type="text" placeholder="dc6m" id='text3'>
+       <span id='yzm'></span>
+       <strong id='hh'>换一换</strong>
+       <input type="text" value='您输入的验证码有误' id='cw1'>
+       <button id='btn'>登陆</button>
+    </div>
+    <script>
+        var yzm=document.getElementById('yzm');
+        var hh=document.getElementById('hh');
+        var btn=document.getElementById('btn');
+        var text3=document.getElementById('text3');
+        var cw1=document.getElementById('cw1');
+        var cw=document.getElementById('cw');
+        var text1=document.getElementById('text1');
+        var text2=document.getElementById('text2');
+        //点击获取随机大写字母验证码
+        hh.onclick=function(){
+            var arr='QWERTYUIOPASDFGHJKLMNBVCXZ';
+            function text(arr,n){
+                var arr1=[];
+                for(var i=0;i<n;i++){
+                    var sj=Math.floor(Math.random()*arr.length);
+                    arr1.push(arr[sj])
+                }
+                return arr1.join('');
+            }
+            yzm.innerHTML=text(arr,4);
+        }
+        //判断验证码输入对错
+         btn.onclick=function(){
+            var val=yzm.innerHTML;
+            if(text3.value!==val){
+                cw1.style.display='block';
+            }else{
+                cw1.style.display='none';
+            }
+            if(text1.value!=='zhaoxiaoru'||text2.value!=='123'){
+                cw.style.display='block';
+            }else{
+                cw.style.display='none';
+            }
+            //都为真则登陆成功
+            if(text3.value===val&&text1.value==='zhaoxiaoru'&&text2.value==='123'){
+                open('http://172.27.0.200/exam/index.php?m=Index&a=index')
+            }
+         }
+
+    </script>
+</body>
+</html>

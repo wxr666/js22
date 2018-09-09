@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        tr{
+           text-align:center;
+        }
+        a{
+            color:blue;
+            text-decoration:none;
+        }
+    </style>
+</head>
+<body>
+    <table border='1' width='500px'>
+        <thead>
+            <tr>
+                <th>编号</th>
+                <th>姓名</th>
+                <th>性别</th>
+                <th>操作</th>
+            </tr>
+        </thead>
+        <tbody id='box'>
+           <!--  <tr>
+               <td>1</td>
+               <td>刘备</td>
+               <td>男</td>
+               <td><a href='javascript:;'>删除</a></td>
+           </tr> -->
+        </tbody>
+    </table>
+    <script>
+        var data = [
+                { "id": 1, "username": "刘备", "sex": "男" },
+                { "id": 2, "username": "关羽", "sex": "男" },
+                { "id": 3, "username": "张飞", "sex": "男" },
+                { "id": 4, "username": "诸葛亮", "sex": "男" },
+                { "id": 5, "username": "大乔", "sex": "女" },
+                { "id": 6, "username": "小乔", "sex": "女" },
+                { "id": 7, "username": "周瑜", "sex": "男" }
+            ];
+        var box=document.getElementById('box');
+        for(var i=0;i<data.length;i++){
+            //console.log(data[i])
+            var obj=data[i];
+            var tr=document.createElement('tr');
+            var td=document.createElement('td');
+            td.innerHTML=data[i].id;
+            tr.appendChild(td);
+            box.appendChild(tr);
+
+            var td=document.createElement('td');
+            td.innerHTML=data[i].username;
+            tr.appendChild(td);
+
+            var td=document.createElement('td');
+            td.innerHTML=data[i].sex;
+            tr.appendChild(td);
+
+            var td=document.createElement('td');
+            td.innerHTML='<a href="javascript:;">删除</a>';
+            tr.appendChild(td);
+        }
+        var aa=document.getElementsByTagName('a');
+        for(var i=0;i<aa.length;i++){
+            aa[i].onclick=function(){
+               box.removeChild(this.parentNode.parentNode);
+            }
+        }
+        var tr=document.getElementsByTagName('tr');
+        for(var i=0;i<tr.length;i++){
+            if(i%2){
+                tr[i].style.background='pink';
+            }else{
+                tr[i].style.background='skyblue';
+            }
+        }
+    </script>
+</body>
+</html>

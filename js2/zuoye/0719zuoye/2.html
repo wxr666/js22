@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['刘备','关羽','张飞','诸葛亮','庞统'];
+        Array.prototype.unshift=function(n1,n2){
+
+             for(var i=arguments.length;i>=0;i--){
+                this[i+arguments.length]=this[i]
+             }
+             return this;
+        }
+        console.log(arr.unshift('大乔','小乔'));
+
+
+    </script>
+</body>
+</html>

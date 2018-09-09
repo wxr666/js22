@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>价格</title>
+</head>
+<body>
+      <ul>
+            <li>
+                <input type="checkbox">
+                <button>-</button>
+                <b>0</b>
+                <button>+</button>
+                单价：
+                <em>12.5</em>
+                元&nbsp;&nbsp;
+                小计：
+                <strong>0</strong>
+                元
+            </li>
+            <li>
+                <input type="checkbox">
+                <button>-</button>
+                <b>0</b>
+                <button>+</button>
+                单价：
+                <em>10</em>
+                元&nbsp;&nbsp;
+                小计：
+                <strong>0</strong>
+                元
+            </li>
+            <li>
+                <input type="checkbox">
+                <button>-</button>
+                <b>0</b>
+                <button>+</button>
+                单价：
+                <em>16.5</em>
+                元&nbsp;&nbsp;
+                小计：
+                <strong>0</strong>
+                元
+            </li>
+            <li>
+                <input type="checkbox">
+                <button>-</button>
+                <b>0</b>
+                <button>+</button>
+                单价：
+                <em>9.5</em>
+                元&nbsp;&nbsp;
+                小计：
+                <strong>0</strong>
+                元
+            </li>
+        </ul>
+        全选<input type="checkbox" id='all'>
+        <p>商品一共0件，共花费0元</p>
+        <script>
+            var ul=document.getElementsByTagName('ul')[0];
+            var li=ul.getElementsByTagName('li');
+            var b=ul.getElementsByTagName('b');
+            var strong=ul.getElementsByTagName('strong');
+            var input=ul.getElementsByTagName('input');
+            var all=document.getElementById('all')
+            var p=document.getElementsByTagName('p')[0];
+            //传参
+            for(var i=0;i<li.length;i++){
+                text(li[i])
+            }
+            //加加  减减  函数调用
+            function text(obj){
+                var btn=obj.getElementsByTagName('button');
+                var b=obj.getElementsByTagName('b')[0];
+                var em=obj.getElementsByTagName('em')[0];
+                var strong=obj.getElementsByTagName('strong')[0];
+                var num=b.innerHTML;
+                var price=em.innerHTML;
+                btn[1].onclick=function(){
+                    num++;
+                    fn();
+                }
+                btn[0].onclick=function(){
+                    num--;
+                    if(num<=0){
+                        num=0;
+                    }
+                    fn();
+                }
+                function fn(){
+                    b.innerHTML=num;
+                    strong.innerHTML=price*num;
+                    auto();
+                }
+              }
+              function auto(){
+                     var cont=0;
+                     var money=0;
+                     for(var i=0;i<b.length;i++){
+                        if(input[i].checked){
+                           cont+=b[i].innerHTML*1;
+                           money+=strong[i].innerHTML*1;
+                       }
+                    }
+                    p.innerHTML='商品一共:'+cont+',共花费:'+money+'元';
+                 }
+
+                 //单选
+                for(var i=0;i<input.length;i++){
+                     input[i].onclick=function(){
+                         var cont=0;
+                         for(var i=0;i<input.length;i++){
+                             if(input[i].checked){
+                                 cont++;
+                                 auto();
+                             }
+                         }
+                         if(cont===input.length){
+                             all.checked=true;
+                         }else{
+                             all.checked=false;
+                         }
+                     }
+                     //多选
+                     all.onclick=function(){
+                        for(var i=0;i<input.length;i++){
+                            input[i].checked=this.checked;
+                        }
+                        auto();
+                     }
+                 }
+
+
+
+        </script>
+</body>
+</html>

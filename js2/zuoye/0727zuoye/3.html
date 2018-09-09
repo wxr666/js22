@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       var str="http://www.baidu.com?id=10&sex=男&age=20";
+       function text(str){
+          var re=/[?&](\w+)=([^&?]+)/g;
+          var obj={};
+          str.replace(re,function($0,$1,$2){
+             obj[$1]=$2;
+          })
+          return obj;
+       }
+       console.log(text(str))
+   </script>
+</body>
+</html>

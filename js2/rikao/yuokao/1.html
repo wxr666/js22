@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            list-style:none;
+            margin:0;
+            padding:0;
+        }
+        #box{
+            margin:30px 50px;
+            position:relative;
+
+        }
+        input{
+            width: 400px;
+            height: 30px;
+            outline:none;
+        }
+        #inp{
+            font-size:20px;
+        }
+        #box1{
+            width: 300px;
+            height: 200px;
+            border:1px solid #ccc;
+            list-style:none;
+            margin-top:30px;
+            position:absolute;
+            top:32px;
+            left:180px;
+            display:none;
+        }
+        ul{
+            width: 300px;
+            height: 200px;
+        }
+        ul li{
+           width: 57%;
+            height:200px;
+            float:left;
+            border-right:1px solid #ccc;
+            text-align:center;
+        }
+        ul li:first-child{
+             width: 23%;
+            overflow-y:scroll;
+        }
+        ul li:last-child{
+             width: 19%;
+            border:none;
+            overflow-y:scroll;
+            overflow-x:hidden;
+        }
+        ul li strong,a{
+            width: 32px;
+            line-height: 12px;
+            display: inline-block;
+            padding:14px 10px;
+            font-size:16px;
+            cursor:pointer;
+        }
+        ul li span{
+            width: 57px;
+            height: 50px;
+            line-height: 50px;
+            text-align:center;
+            display: inline-block;
+            font-size:16px;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+   <div id='box'>
+       普通年月日选择&nbsp;<input type="text" id='inp'>
+   </div>
+   <script>
+       //先创建一个日历
+       var box=document.getElementById('box');
+       var box1=document.createElement('div');
+       box1.id='box1';
+       //添加内容
+       box1.innerHTML='<ul><li><strong>2017</strong><strong>2016</strong><strong>2015</strong><strong>2014</strong><strong>2013</strong><strong>2012</strong><strong>2011</strong></li><li><span>1月</span><span>2月</span><span>3月</span><span>4月</span><span>5月</span><span>6月</span><span>7月</span><span>8月</span><span>9月</span><span>10月</span><span>11月</span><span>12月</span></li><li><a>1</a><a>2</a><a>3</a><a>4</a><a>5</a><a>6</a><a>7</a><a>8</a><a>9</a><a>10</a><a>11</a><a>12</a><a>13</a><a>14</a><a>15</a><a>16</a><a>17</a><a>18</a><a>19</a><a>20</a><a>21</a><a>22</a><a>23</a><a>24</a><a>25</a><a>26</a><a>27</a><a>28</a><a>29</a><a>30</a></li></ul>'
+       document.body.appendChild(box1);
+       var span=document.getElementsByTagName('span');
+       var strong=document.getElementsByTagName('strong');
+       var a=document.getElementsByTagName('a');
+       //console.log(span)
+
+       //第一个li
+       for(var i=0;i<strong.length;i++){
+        strong[i].onclick=function(){
+            for(var j=0;j<strong.length;j++){
+                strong[j].style.background='';
+                strong[j].style.color='black';
+            }
+            this.style.background='skyblue'
+            this.style.color='white';
+        }
+       }
+
+       //第二个li
+       for(var i=0;i<span.length;i++){
+        span[i].onclick=function(){
+            for(var j=0;j<span.length;j++){
+                span[j].style.background=''
+                span[j].style.color='black';
+            }
+            this.style.background='skyblue';
+            this.style.color='white';
+            if(this.innerHTML=='8月'||this.innerHTML=='9月'||this.innerHTML=='10月'||this.innerHTML=='11月'||this.innerHTML=='12月'){
+                this.style.background='#ccc';
+                this.style.disabled==true;
+                this.style.color='black';
+            }
+        }
+       }
+
+       //第三个li
+       /*var ul=document.getElementsByTagName('ul')[0];
+       var li=document.getElementsByTagName('li');
+        var date=new Date();
+        var r=date.getDate();*/
+        for(var i=0;i<a.length;i++){
+             a[i].onclick=function(){
+               for(var j=0;j<a.length;j++){
+                  a[j].style.background='';
+                  a[j].style.color='black';
+                }
+             this.style.background='skyblue';
+             this.style.color='white';
+             this.style.checked=true;
+             if(this.innerHTML=='30'){
+                this.style.background='#ccc';
+                this.style.disabled==true;
+                this.style.color='black';
+            }
+        }
+        }
+
+
+
+       //获取当前日期
+       var inp=document.getElementById('inp');
+       var box1=document.getElementById('box1');
+       var date=new Date();
+       var n=date.getFullYear();
+       var y=date.getMonth()+1;
+       var r=date.getDate();
+       inp.value=n+'年'+y+'月'+r+'日';
+       inp.onfocus=function(){
+        box1.style.display='block';
+       }
+
+
+
+
+
+   </script>
+</body>
+</html>

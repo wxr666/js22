@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="点击" id='btn1'>
+    <input type="button" value="删除" id='btn'>
+    <script>
+        function text(obj,ename,fn){
+            if(obj.addEventListener){
+                obj.addEventListener(ename,fn,false);
+            }else{
+                obj.attachEvent('on'+ename,fn);
+            }
+        }
+
+        function clickfn(){
+            alert('哈哈哈哈哈哈')
+        }
+
+        text(btn1,'click',clickfn);
+        //text(window,'load',function(){
+        //    alert('哒哒哒')
+        //})
+
+        function textw(obj,even,fn){
+            if(obj.removeEventListener){
+                obj.removeEventListener(even,fn,false);
+            }else{
+                obj.detachEvent('on'+even,fn);
+            }
+        }
+        text(btn,'click',function(){
+            textw(btn1,'click',clickfn)
+        });
+
+
+    </script>
+</body>
+</html>

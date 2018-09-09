@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul class='box h j j' id='box'>
+        <li></li>
+        <li class='a1 a2 a3'></li>
+        <li></li>
+        <li class='b1 b2'></li>
+        <li></li>
+    </ul>
+    <script>
+        function getclass(obj){
+            return document.getElementsByClassName(obj);
+        }
+        //console.log(getclass('box'));
+        //
+        //
+        var box=document.getElementById('box')
+        function hasclass(obj,nclass){
+            if(!obj.className){
+                return false;
+            }else{
+                var arr=obj.className.split(' ');
+                //console.log(arr)
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]===nclass){
+                       return true;
+                    }
+                }
+            }
+           return false;
+        }
+        //console.log(hasclass(box,'box'));
+
+
+       function addclass(obj,nclass){
+
+           if(!obj.className){
+                obj.className=nclass;
+           }else{
+              if(!hasclass(obj,nclass)){
+                obj.className+=' '+nclass;
+            }
+           }
+           return obj;
+       }
+       //console.log(addclass(box,'a5'));
+       //
+       //
+       //
+       function removeclass(obj,nclass){
+            var arr1=[];
+            if(hasclass(obj,nclass)){
+                var arr=obj.className.split(' ');
+                for(var i=0;i<arr.length;i++){
+                    if(arr[i]!=nclass){
+                       arr1.push(arr[i])
+                    }
+                }
+            }
+            return obj.className=arr1.join(' ')
+       }
+       console.log(removeclass(box,'j'));
+    </script>
+</body>
+</html>

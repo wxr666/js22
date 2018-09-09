@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="请输入手机号" id='text1'>
+    <input type="button" value='登陆' id='btn'>
+    <script>
+        var text1=document.getElementById('text1');
+        var btn=document.getElementById('btn');
+        btn.onclick=function(){
+            var val=text1.value;
+            var re=/^1[34578]\d{9}$/;
+            if(re.test(val)){
+                alert('输入正确');
+            }else{
+                alert('输入错误');
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

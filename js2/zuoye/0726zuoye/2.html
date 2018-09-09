@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>删除空白文本节点</title>
+</head>
+<body>
+   <ul>
+       <li>熊大</li>
+       <li>熊二</li>
+       <li>光头强</li>
+       <li>灰太狼</li>
+       <li>小灰灰</li>
+   </ul>
+   <script>
+       var ul=document.getElementsByTagName('ul')[0];
+       function text(ul){
+        var val=ul.childNodes;
+        //console.log(val.length)
+        for(var i=0;i<val.length;i++){
+            if(val[i].nodeType==3){
+                ul.removeChild(val[i])
+            }
+        }
+        return val.length;
+       }
+       console.log(text(ul))
+   </script>
+</body>
+</html>

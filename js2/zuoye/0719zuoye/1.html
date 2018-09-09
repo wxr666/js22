@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['刘备','关羽','张飞','诸葛亮','庞统'];
+        Array.prototype.push=function(n1,n2){
+            for(var i=0;i<arguments.length;i++){
+                this[this.length]=arguments[i];
+            }
+            return this;
+        }
+        console.log(arr.push('曹操','周瑜'));
+    </script>
+</body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>offsetParent</title>
+    <style>
+        div{
+            padding:40px 50px;
+        }
+        #div1{
+            background:red;
+        }
+        #div2{
+            background:green;
+            position:relative;
+        }
+        #div3{
+            background:yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="div1">
+        <div id="div2">
+            <div id="div3"></div>
+        </div>
+    </div>
+    <script>
+        var div3=document.getElementById("div3");
+        //var left=div3.offsetLeft;
+        //console.log(left);//50
+        console.log(getPos(div3));//Object {left: 108, top: 88}
+        function getPos(obj){
+            var pos={left:0,top:0};
+            while(obj){
+                pos.left+=obj.offsetLeft;
+                pos.top+=obj.offsetTop;
+                obj=obj.offsetParent;
+            }
+            return pos;
+        }
+    </script>
+</body>
+</html>

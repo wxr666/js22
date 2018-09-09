@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>两种提取数字方法</title>
+</head>
+<body>
+    <script>
+          var str='haskd3h4888dfhw3h432';
+         /* function text(str){
+                var arr=[];
+                var temp='';
+                for(var i=0;i<str.length;i++){
+                 if(str[i]>=0&&str[i]<=9){
+                     temp+=str[i];
+                 }else{
+                     if(temp){
+                         arr.push(temp);
+                         temp='';
+                     }
+                 }
+                }
+                if(temp){
+                         arr.push(temp);
+                         temp='';
+                     }
+                return arr;
+             }
+             console.log(text(str));*/
+
+             function text(str){
+                return str.match(/\d{1,4}/g);
+             }
+             console.log(text(str));
+
+             //封装一个函数
+             //声明一个空的变量
+             //声明一个空的字符串
+             //遍历数组
+             //
+        </script>
+</body>
+</html>

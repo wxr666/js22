@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>3个月后是星期三</title>
+    <style>
+        *{
+            color:skyblue;
+            font-weight:bold;
+            font-size:30px;
+        }
+    </style>
+</head>
+<body>
+    <script>
+        function text(num){
+           var week=['日','一','二','三','四','五','六'];
+           var date=new Date();
+           var n=date.getFullYear();
+           var y=date.getMonth();
+           var r=date.getDate();
+           var date1=new Date(n,y+num,r);
+           var w=week[date1.getDay()];
+           document.write('3个月后是星期'+w)
+        }
+        text(3);
+    </script>
+</body>
+</html>

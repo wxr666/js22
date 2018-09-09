@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #box{
+
+            margin:10px auto;
+        }
+        input{
+            margin-top:20px;
+        }
+    </style>
+</head>
+<body>
+    <form id='box'>
+        用户名：<input type="text" name="user1" placeholder="用户名必须是4到16位的英文字母或数字"><br/>
+        密 码：<input type="text" name="user2" placeholder="密码必须是6到16位"><br/>
+        确认密码：<input type="text" name="user3" placeholder="俩次密码输入要一致"><br/>
+        email：<input type="text" name="user4" placeholder="邮箱"><br/>
+        昵 称：<input type="text" name="user5" placeholder="昵称"><br/>
+        <input type="submit" value='注册'>
+    </form>
+    <script>
+       var box=document.getElementById('box');
+        var button=document.getElementsByTagName('button');
+        var user1=box.user1;//用户名
+        var user2=box.user2;//密码
+        var user3=box.user3;//确认密码
+        var user4=box.user4;//邮箱
+        var user5=box.user5;//昵称
+        var re={
+            zhRe:/^[1-9a-z]{4,16}$/i,
+            mmRe:/^\w{6,16}$/,
+            emRe:/^\w+@[a-z0-9]+(\.[a-z]+){1,3}$/
+        }
+
+        user1.onblur=function(){
+            var val=this.value;
+            var span=this.nextElementSibling||this.nextSibling;
+            if(!re.zhRe.test(val)){
+                span.style.display='inline-block';
+                return false;
+            }else{
+                span.style.display='none';
+            }
+        }
+        /*box.onsubmit=function(){
+            console.log(11);
+            //return false;
+        }*/
+    </script>
+</body>
+</html>

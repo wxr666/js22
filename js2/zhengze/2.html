@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>替换**</title>
+</head>
+<body>
+    <p>替换前</p>
+    <textarea></textarea>
+    <p>替换后</p>
+    <textarea></textarea><br/>
+    <input type="button" value="点击" id='btn'>
+    <script>
+        //用变量存储text1
+        //先用正则，
+        //用替换声明函数
+        //声明一个空的变量，用来存储，
+        //遍历n，加*
+        //text1=*
+        var btn=document.getElementById('btn');
+        var text=document.getElementsByTagName('textarea');
+        btn.onclick=function(){
+            var val=text[0].value;
+            var re=/人民|减税|税务战/g;
+            var arr=val.replace(re,function(n){
+                var temp='';
+                for(var i=0;i<n.length;i++){
+                    temp+='*';
+                }
+                return temp;
+            })
+            text[1].value=arr;
+        }
+        /*var arr=[];
+        var arr=new Array();
+
+        var obj={};
+        var obj=new Object();
+
+        var re=/a/;
+        var re=new RegExp('a');*/
+
+        /*var str='546dsfs376gd84';
+        var re=/c/;
+        alert(re.test(str));*/
+
+
+        /*var str='54637684';
+        var re=/\D/;
+        if(re.test(str)){
+            alert('不全是数字');
+        }else{
+            alert('全是数字');
+        }*/
+
+        /*var str='abcdefg';
+        //var re=/B/i;
+        var re=new RegExp('F','i');
+        console.log(str.search(re));*/
+
+        /*var str='hjsdh23h8dfh292r';
+        var re=/\d?/g;
+        console.log(str.match(re));
+*/
+
+        /*var str='aaa';
+        var re=/a/;
+        str=str.replace(re,'b');
+        alert(str);*/
+
+        /*var arr='人民减税税务战';
+        var re=/人民|减税|税务战/;
+        console.log(re);*/
+
+
+        /*var str='2017-4-29';
+        var re=/(\d+)(-)/g;*/
+
+
+
+    </script>
+</body>
+</html>

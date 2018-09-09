@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+        }
+        #box{
+            width: 100px;
+            height: 140px;
+            position:absolute;
+            top:100px;
+            left:100px;
+        }
+    </style>
+</head>
+<body style='height:2000px'>
+    <img src="img/2.jpg" id='box' class='box'>
+    <!-- <div ></div> -->
+    <script>
+         var box=document.getElementById('box');
+         var downX=0;
+         var downY=0;
+         var moveX=0;
+         var moveY=0;
+         var upX=0;
+         var upY=0;
+         box.onmousedown=function(ev){
+            var ev2=ev||window.event;
+            downX=ev2.clientX;
+            downY=ev2.clientY;
+            //console.log(downY)
+            upX=box.offsetLeft;
+            //console.log(upX)
+            upY=box.offsetTop;
+            document.onmousemove=function(ev){
+                var ev2=ev||window.event;
+                moveX=ev2.clientX;
+                moveY=ev2.clientY;
+                box.style.left=moveX-downX+upX+'px';
+                //console.log(box.style.left)
+                box.style.top=moveY-downY+upY+'px';
+            }
+            document.onmouseup=function(){
+                document.onmousemove=null;
+                document.onmouseup=null;
+            }
+         }
+    </script>
+</body>
+</html>

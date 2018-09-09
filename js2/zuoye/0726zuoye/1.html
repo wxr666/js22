@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>元素到文档的距离</title>
+    <style>
+        #div1{
+            width: 300px;
+            height: 200px;
+            background:green;
+            position:relative;
+        }
+        #div2{
+            width: 200px;
+            height: 150px;
+            background:skyblue;
+            position:absolute;
+            top:30px;
+            left:20px;
+        }
+        #div3{
+            width: 100px;
+            height: 100px;
+            background:pink;
+            position:absolute;
+            top:10px;
+            left:30px;
+        }
+    </style>
+</head>
+<body>
+   <div id='div1'>
+        <div id='div2'>
+            <div id='div3'>
+
+            </div>
+        </div>
+    </div>
+    <script>
+        var div2=document.getElementById('div2')
+        var div3=document.getElementById('div3')
+        function getPos(obj){
+            var pos={left:0,top:0}
+            while(obj){
+                pos.left+=obj.offsetLeft;
+                pos.top+=obj.offsetTop;
+                obj=obj.offsetParent;
+            }
+            return pos;
+        }
+        console.log(getPos(div3));
+        console.log(getPos(div2));
+    </script>
+</body>
+</html>

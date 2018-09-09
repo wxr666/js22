@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=['0','1','2','3','4','5','6','7','a','b','c','d'];
+        function text(arr,index,n){
+           for(var i=arr.length-1;i>=index;i--){
+              arr[i+1]=arr[i]
+            }
+            arr[index]=n;
+        }
+        text(arr,3,'dfd');
+        console.log(arr)
+    </script>
+</body>
+</html>

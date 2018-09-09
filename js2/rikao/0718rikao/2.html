@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       var foods = ["apple","pear","milk","cake","orange","water","sweet"];
+       function text(foods,n){
+           var arr=[];
+           var val=foods.length/n;
+             for(var i=0;i<val;i++){
+                  arr.push(foods.splice(0,n));
+           }
+           return arr;
+       }
+       console.log(text(foods,3));
+   </script>
+</body>
+</html>

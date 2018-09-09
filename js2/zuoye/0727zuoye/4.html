@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+   <script>
+       var arr='yyyy-mm-dd hh:mm:ss';
+       function text(n){
+          var re=/[-]/g;
+          var arr1=arr.replace(re,n);
+          return arr1;
+       }
+       console.log(text('/'))//yyyy/mm/dd hh:mm:ss
+
+   </script>
+</body>
+</html>

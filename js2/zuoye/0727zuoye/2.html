@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>111111</li>
+        <li>222222</li>
+        <li>333333</li>
+    </ul>
+    <script>
+        var ul=document.getElementsByTagName('ul')[0];
+        var li=document.getElementsByTagName('li');
+        function text(li){
+            var val=ul.childNodes;
+            console.log(val.length)
+            var arr=[];
+            for(var i=0;i<val.length;i++){
+               if(val[i].nodeType!==3){
+                    arr.push(val[i])
+               }
+            }
+            return arr.length;
+        }
+        console.log(text(li))
+    </script>
+</body>
+</html>

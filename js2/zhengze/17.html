@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+    <input type="button" value="按钮">
+    <script>
+        var btn=document.getElementsByTagName('input');
+        for(var i=0;i<btn.length;i++){
+          //调用自执行函数
+          (function(i){
+               btn[i].onclick=function(){
+                  //console.log(n);
+                  for(var i=0;i<btn.length;i++){
+                    btn[i].style.background='';
+                  }
+                  this.style.background='yellow';
+             }
+          })(i)
+        }
+
+        /*for(var i=0;i<btn.length;i++){
+          btn[i].index=i;
+          btn[i].onclick=function(){
+            console.log(this.index);
+          }
+        }*/
+        /*var arr=['1','2','3'];
+        function foreach(arr,callback){
+            for(var i=0;i<arr.length;i++){
+                callback(arr[i],i,arr)
+            }
+        }
+        foreach(arr,function(ele,index,arr){
+            console.log(arr)
+        })*/
+        /* function outer(){
+           var num = 1;
+           var inner = function(){
+               return num++;
+           }
+           return inner;
+       }
+       var n = outer();
+       var n1 = n();
+       var n2 = n();
+       var n3 = n();
+       console.log(n1+','+n2+','+n3);*/
+
+       /*var arr=['a','b','c'];
+
+       //封装forEach
+       function foreach(ele,callback){
+        for(var i=0;i<ele.length;i++){
+          callback(ele[i],i,arr);
+        }
+       }
+       foreach(arr,function(ele,index,array){
+        console.log(ele)
+       })*/
+
+    </script>
+</body>
+</html>

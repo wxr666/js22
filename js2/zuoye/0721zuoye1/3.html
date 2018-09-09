@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #btn,li{
+            cursor:pointer;
+        }
+        a{
+            margin-left:10px;
+            color:blue;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id='text'>
+    <input type="button" id='btn' value='点击按钮'>
+    <ul id='oul'>
+        <li>蜗牛<a>删除</a></li>
+        <li>蜗牛<a>删除</a></li>
+    </ul>
+    <script>
+         var text=document.getElementById('text');
+         var btn=document.getElementById('btn');
+         var oul=document.getElementById('oul');
+         btn.onclick=function(){
+            var val=text.value;
+            var oli=document.createElement('li');
+            oli.innerHTML=val+'<a>删除</a>';
+            oul.appendChild(oli);
+            var aa=document.getElementsByTagName('a');
+            text.value='';
+
+         }
+         oul.onclick=function(ev){
+                var ev=ev||event;
+                var target=ev.target||ev.srcElement;
+                if(target.tagName==='LI'){
+                    target.style.background='red';
+                }
+                if(target.tagName==='A'){
+                    oul.removeChild(target.parentNode);
+                }
+            }
+    </script>
+</body>
+</html>

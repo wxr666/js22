@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+         var arr='  今天下雨了，   空气很新鲜   ';
+         function trim(arr){
+            var re=/^\s+|\s+|\s+$/g;
+            var arr1=arr.replace(re,'');
+            return arr1;
+         }
+         console.log(trim(arr));
+         console.log('('+arr+')');
+    </script>
+</body>
+</html>

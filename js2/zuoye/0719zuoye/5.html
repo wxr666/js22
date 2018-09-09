@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[79,5,62,4,6,76,49,10,5];
+        Array.prototype.max=function(arr){
+           for(var i=0;i<this.length;i++){
+            for(var j=0;j<i;j++){
+                if(this[i]>this[j]){
+                    var temp=0;
+                    temp=this[j];
+                    this[j]=this[i];
+                    this[i]=temp;
+                }
+            }
+           }
+           return this[0];
+        }
+        console.log(arr.max(arr))
+    </script>
+</body>
+</html>

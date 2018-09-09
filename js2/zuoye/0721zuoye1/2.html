@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+    <style>
+        #box{
+            width: 200px;
+            height: 200px;
+            background:#33CC66;
+            border:2px solid black;
+            /* border:5px solid #F1F1F1; */
+        }
+    </style>
+</head>
+<body>
+   <div id='box'>
+
+   </div>
+   <script>
+       var box=document.getElementById('box');
+       function getWheelDelta(ev){
+        if(ev.wheelDelta){
+            return ev.wheelDelta;
+        }else{
+            return -40*ev.detail;
+        }
+       }
+
+
+       function bind(obj,ev,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(ev,fn,false);
+        }else{
+            obj.attachEvent('on'+ev,function(){
+                fn.call(obj);
+            });
+        }
+       }
+       bind(box,'mousewheel',fn);
+       bind(box,'DOMMouseScroll',fn);
+
+
+
+       function fn(ev){
+        var ev=ev||event;
+        var n=getWheelDelta(ev);
+        console.log(n);
+       }
+   </script>
+</body>
+</html>

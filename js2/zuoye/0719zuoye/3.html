@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr=[79,5,62,4,6,76,49,10,5];
+        Array.prototype.sum=function(arr){
+             var sum=0;
+             for(var i=0;i<this.length;i++){
+                sum+=this[i];
+             }
+             return sum;
+        }
+        console.log(arr.sum(arr));
+    </script>
+</body>
+</html>

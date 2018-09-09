@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str='abc345efgabcab';
+        var re=/[abc]/g;
+        var arr=str.replace(re,'');
+        console.log(arr);//345efg
+
+
+
+        /*var str='abc345efgabcab';
+        function text(str){
+            var re=/\d/g;
+            var arr=str.replace(re,function(n){
+                return n*2
+            })
+            return arr;
+        }
+        console.log(text(str))//abc6810efgabcab*/
+
+
+
+        /*var str='abc345efgabcab';
+        function text(str){
+            var re=/\d/g;
+            var arr=str.replace(re,function(n){
+                return '['+n+']';
+            })
+            return arr;
+        }
+        console.log(text(str))//abc[3][4][5]efgabcab*/
+    </script>
+</body>
+</html>

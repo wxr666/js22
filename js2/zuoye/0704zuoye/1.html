@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function sj(min,max){
+            return Math.floor(Math.random()*(max-min+1)+min);
+        }
+        function text(n,min,max){
+           var arr=[];
+           for(var i=0;i<n;i++){
+            var m=sj(min,max);
+            if(arr.indexOf(m)===-1){
+                arr.push(m);
+            }else{
+                i--;
+            }
+           }
+           return arr.sort(function ab(a,b){
+            return a-b;
+           });
+        }
+        console.log(text(10,10,100));
+    </script>
+</body>
+</html>

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        span{
+            display:inline-block;
+            width: 20px;
+            height: 20px;
+            background:#ccc;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" id='btn'>
+    <span></span>
+    <span></span>
+    <span></span>
+    <script>
+        var btn=document.getElementById('btn');
+        var span=document.getElementsByTagName('span');
+        var re={
+            t0:/^[\w!@#\$%\^&\*]$/,//所有的字符
+            t1:/\d+/,//数字
+            t2:/[a-z]+/i,//大小写字母
+            t3:/[!@#\$%\^&\*]+///特殊符号
+        }
+        btn.onkeyup=function(){
+            var val=btn.value;
+            var num=0;
+            if(re.t1.test(val)){
+                num++;
+            }
+            if(re.t2.test(val)){
+                num++;
+            }
+            if(re.t3.test(val)){
+                num++;
+            }
+            for(var i=0;i<span.length;i++){
+                span[i].style.background='#ccc';
+            }
+            switch(num){
+                case 1:
+                span[0].style.background='red';
+                break;
+                case 2:
+                span[1].style.background='green';
+                break;
+                case 3:
+                span[2].style.background='skyblue';
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

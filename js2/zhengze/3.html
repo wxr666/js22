@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>练习</title>
+</head>
+<body>
+   <ul>
+      <li>熊二</li>
+      <li class='box1'>大大</li>
+      <li>喜羊羊</li>
+      <li class='box1 box2 box3'>哈哈哈</li>
+    </ul>
+
+    <ul>
+      <li>苹果</li>
+      <li class='box1'>香蕉</li>
+      <li>梨</li>
+      <li class='box1 box2 box3'>西瓜</li>
+    </ul>
+    <script>
+       //阻止默认行为
+       /*function preventDefault(ev){
+        var ev=ev||event;
+        if(ev.preventDefault){
+            ev.preventDefault;
+        }else{
+            ev.returnValue=false;
+        }
+       }
+
+       //组织冒泡
+       function stopPropagation(ev){
+        var ev=ev||event;
+        if(ev.stopPropagation){
+            ev.stopPropagation;
+        }else{
+            ev.cacelBubble=true;
+        }
+       }*/
+
+       //var arr='one two';//\b起始 结束 空格
+       //var re=/\bon\bc/;
+       //console.log(re.test(arr))
+
+
+       var a=getClass(document,'box1')
+       for(var j=0;j<a.length;j++){
+        a[j].style.background='red';
+       }
+       console.log(a);
+       function getClass(document,classn){
+          var arr=[];
+          var aa=document.getElementsByTagName('*');
+          var re=new RegExp('\\b'+classn+'\\b');
+          for(var i=0;i<aa.length;i++){
+            if(re.test(aa[i].className)){
+                arr.push(aa[i]);
+            }
+          }
+          return arr;
+       }
+    </script>
+</body>
+</html>

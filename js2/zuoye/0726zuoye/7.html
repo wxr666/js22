@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        input{
+            margin-left:20px;
+        }
+        ul li i{
+            font-weight: normal;
+        }
+        span{
+            margin-left:20px;
+            color:red;
+        }
+        a{
+            margin-left:10px;
+            text-decoration:none;
+        }
+        .box1{width: 300px;
+            height: 200px;
+            border: 1px solid #ccc;
+            padding: 20px;
+            background: #fff;
+            border-radius: 10px;
+            text-align: center;
+            position:fixed;
+            z-index: 2;
+        }
+        .zhezhao{
+            background:black;
+            opacity:0.3;
+            position:fixed;
+            left:0;
+            top:0;
+            z-index:1;
+        }
+    </style>
+</head>
+<body>
+   详细地址<input type="button" value='添加' id='btn'>
+    <ul id='box'>
+        <li>
+            <i>北京市朝阳区双娇小区</i>
+            <span>默认地址</span>
+            <a href='javascript:;'>删除</a>
+        </li>
+        <li>
+            <i>北京市朝阳区城关小区A座14层</i>
+            <span>默认地址</span>
+            <a href='javascript:;'>删除</a>
+        </li>
+    </ul>
+    <script>
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        var re=/^[a-zA-Z][座-][1-9]\d{2,3}$/;
+        btn.onclick=function(){
+            //可视区
+            var width=document.documentElement.clientWidth;
+            var height=document.documentElement.clientHeight;
+            //console.log(width)
+            //console.log(height)
+            //创建窗体
+            var box1=document.createElement('box1');
+            box1.className='box1';
+            box1.style.left=(width-342)/2+'px';
+            box1.style.top=(height-242)/2+'px';
+            box1.innerHTML='<p>请填入小区或大厦的名称</p><input type="text" id="text1"><p>楼号门牌号</p><input type="text" id="text2"><br/><br/><input type="button" value="保存" id="btn1"><input type="button" value="取消" id="btn2">'
+            document.body.appendChild(box1);
+
+            //遮罩
+            var zhezhao=document.createElement('zhezhao');
+            zhezhao.className='zhezhao';
+            zhezhao.style.width=width+'px';
+            zhezhao.style.height=height+'px';
+            document.body.appendChild(zhezhao);
+
+            //取消
+            var btn2=document.getElementById('btn2');
+            btn2.onclick=function(){
+                document.body.removeChild(box1);
+                document.body.removeChild(zhezhao);
+            }
+
+            //保存
+            var btn1=document.getElementById('btn2');
+            btn1.onclick=function(){
+                var text1 = document.getElementById('text1');
+                var text2 = document.getElementById('text2');
+                if(!text1.value){
+                    alert('请填入小区或大厦的名称');
+                    return false;
+                }
+                if(!text2.value){
+                    alert('请填入楼号门牌号');
+                    return false;
+                }
+                if(!re.test(text2.value)){
+                    alert('请填入正确的楼号门牌号')
+                    return false;
+                }
+
+                /*var li=document.createElement('li');
+                li.innerHTML='<i>'+ text1.value + text2.value +'</i><span class="active">默认地址</span><a href="javascript:;">删除</a>';
+
+                var aSpan = box.getElementsByTagName('span');
+                        for(var i=0; i<aSpan.length; i++){
+                            aSpan[i].className = '';
+                            aSpan[i].innerHTML = '设为默认';
+                        }
+
+
+                box.appendChild(li)
+                btn2.onclick();*/
+            }
+        }
+
+
+
+    </script>
+</body>
+</html>

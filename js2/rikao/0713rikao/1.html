@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title></title>
+</head>
+<body>
+   <input type="text" placeholder="请输入手机号" id='box'>
+   <input type="button" value='登陆' id='btn'>
+   <script>
+       var box=document.getElementById('box');
+       var btn=document.getElementById('btn');
+       btn.onclick=function(){
+        var re=/[1-9]\d{11}/g;
+        var arr=re.test();
+        //console.log(arr)
+        if(arr){
+            alert('输入正确');
+        }else{
+            alert('输入错误，请重新输入');
+        }
+       }//^1+\d{1}+[35678]\d{1}+[0-9]\d{9}
+       //14124@.qq.com
+       //var re=//;
+   </script>
+</body>
+</html>

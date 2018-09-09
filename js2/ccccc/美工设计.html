@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>美工设计</title>
+    <style>
+        span{
+            margin-right:20px;
+            color:blue;
+            font-size:26px;
+        }
+    </style>
+</head>
+<body>
+    <dl>
+        <dt><b>地区</b></dt>
+        <dd>东城</dd>
+        <dd>西城</dd>
+        <dd>朝阳</dd>
+        <dd>昌平</dd>
+    </dl>
+    <dl>
+        <dt><b>职位</b></dt>
+        <dd>美工设计</dd>
+        <dd>前端开发</dd>
+        <dd>后台开发</dd>
+    </dl>
+    <dl>
+        <dt><b>地区</b></dt>
+        <dd>4000</dd>
+        <dd>5000</dd>
+        <dd>6000</dd>
+    </dl>
+    <div id='box'>
+        <!-- <span></span>
+        <span></span>
+        <span></span> -->
+    </div>
+    <script>
+        var dl=document.getElementsByTagName('dl');
+        var dd=document.getElementsByTagName('dd');
+
+        for(var i=0;i<dd.length;i++){
+            dd[i].index=i;
+            dd[i].onclick=function(){
+                box.innerHTML=this.innerHTML;
+                ///for(var j=0;j<dd.length;j++){
+                   console.log(this)
+               //}
+            }
+
+        }
+
+
+
+
+
+
+
+        /*var dl=document.getElementsByTagName('dl');
+        var box=document.getElementById('box');
+        var arr=[];
+        for(var i=0;i<dl.length;i++){
+            arr.push('');
+             text(dl[i],i);
+        }
+        function text(n,index){
+            var dd=n.getElementsByTagName('dd');
+            for(var j=0;j<dd.length;j++){
+               dd[j].onclick=function(){
+                arr[index]=this.innerHTML;
+                fn();
+                this.style.color='red';
+               }
+            }
+        }
+        function fn(){
+            box.innerHTML='';
+            for(var i=0;i<arr.length;i++){
+                var span=document.createElement('span');
+                span.innerHTML=arr[i];
+                box.appendChild(span);
+            }
+        }
+         console.log(arr)*/
+
+    </script>
+</body>
+</html>

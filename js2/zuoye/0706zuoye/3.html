@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        a{
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+   <input type="text" id="text">
+   <input type="button" value="留言" id='btn'>
+   <ul id='oUl'>
+
+   </ul>
+   <script>
+       var text=document.getElementById('text');
+       var btn=document.getElementById('btn');
+       var oUl=document.getElementById('oUl');
+       var lis=document.getElementsByTagName('li');
+
+       btn.onclick=function(){
+        var val=text.value;
+        if(val=='')return false;
+        var oLi=document.createElement('li');
+        var aa=document.createElement('a');
+        aa.innerHTML='删除';
+        oLi.innerHTML=val;
+        oLi.appendChild(aa);
+        aa.onclick=function(){
+            oUl.removeChild(this.parentNode)
+        }
+        if(oUl.children[0]){
+            oUl.insertBefore(oLi,oUl.children[0]);
+        }else{
+            oUl.appendChild(oLi);
+        }
+        text.value='';
+        for(var i=5;i<lis.length;i++){
+            oUl.removeChild(lis[i]);
+        }
+       }
+   </script>
+</body>
+</html>

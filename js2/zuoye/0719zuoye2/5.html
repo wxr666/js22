@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>解析url中的参数</title>
+</head>
+<body>
+    <script>
+       /* var url="https://www.baidu.com?city=北京&name=张凯浪&age=86";
+        function text(ele,names){
+           var arr=ele.split('?');
+           var arr1=arr[1].split('&');
+           console.log(arr1)
+           for(var i=0;i<arr1.length;i++){
+            var arr2=arr1[i].split('=');
+            if(arr2[0]==names){
+                return arr2[1]
+            }
+           }
+        }
+        console.log(text(url,'city'));//北京
+        console.log(text(url,'name'));//张凯浪
+        console.log(text(url,'age'));//86*/
+
+
+
+        var url="https://www.baidu.com?city=北京&name=张凯浪&age=86";
+        function text(url){
+            var obj={};
+            var re=/[?&](\w+)=([^&?]+)/g;
+            url.replace(re,function($0,$1,$2){
+                obj[$1]=$2;
+            })
+            return obj;
+        }
+        console.log(text(url));//Object {city: "北京", name: "张凯浪", age: "86"}
+
+    </script>
+</body>
+</html>

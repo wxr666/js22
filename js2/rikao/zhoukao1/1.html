@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #nav{
+            width: 100%;
+            height: 50px;
+            display: flex;
+            justify-content:space-around;
+            align-items: center;
+            position:fixed;
+            top:0;
+            left:0;
+            background:#F7F7F7;
+        }
+        p{
+            width: 190px;
+            border:1px solid #ccc;
+             position:relative;
+        }
+        p input{
+            border:none;
+            outline:none;
+        }
+        p img{
+             position:absolute;
+             top:3px;
+             right:3px;
+             cursor:pointer;
+        }
+        #box{
+            width: 100%;
+        }
+         #box img{
+            width: 100%;
+        }
+        #tubiao{
+            width: 50px;
+            height: 50px;
+            line-height: 50px;
+            text-align:center;
+            background:#ccc;
+            font-size:40px;
+            color:white;
+            position:fixed;
+            bottom:50px;
+            right:0;
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+        <img src="img/图片2.png" alt="">
+    </div>
+    <div id='nav'>
+        <span><img src="img/1.jpg" alt=""></span>
+        <p>
+            <input type="text" placeholder="阴阳师">
+            <img src="img/2.jpg" alt="">
+        </p>
+    </div>
+    <div id='tubiao'> ↑ </div>
+    <script>
+       var nav=document.getElementById('nav');
+       var box=document.getElementById('box');
+       var tubiao=document.getElementById('tubiao');
+       /*if(box.document.scrollTop==='100px'){
+        nav.style.display='block';
+       }*/
+       tubiao.onclick=function(){
+           alert('返回顶部')
+       }
+    </script>
+</body>
+</html>

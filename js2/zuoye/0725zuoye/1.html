@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>倒计时</title>
+    <style>
+        #box{
+            font-size:30px;
+            color:skyblue;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'></div>
+    <script>
+        var box=document.getElementById('box');
+        function text(n,y,r){
+            setInterval(function(){
+            var date=new Date();
+            var date1=new Date(n,y-1,r);
+            var timer=Math.floor(date1.getTime()-date.getTime());//毫秒之差
+            var t=Math.floor(timer/86400000);
+            var s=Math.floor(timer%86400000/3600000);
+            var f=Math.floor(timer%86400000%3600000/60000);
+            var m=Math.floor(timer%86400000%3600000%60000/1000);
+            box.innerHTML='距月考还有'+t+'天'+s+'时'+f+'分'+m+'秒';
+        },1000)
+        }
+        text(2017,7,28)
+
+    </script>
+</body>
+</html>

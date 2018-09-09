@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //第一种方法
+        var str='haskd3h4888dfhw3h432';
+        function text(str){
+            var newStr=[];
+            var temp='';
+            for(var i=0;i<str.length;i++){
+                if(str[i]>0&&str[i]<9){
+                    temp+=str[i];
+                }else{
+                    if(temp){
+                        newStr.push(temp);
+                        temp='';
+                    }
+                }
+            }
+            if(temp){
+                 newStr.push(temp);
+                temp='';
+            }
+            return newStr;
+        }
+        console.log(text(str));
+
+
+        //第二种方法
+        /*function text(str){
+            return str.match(/\d{1,}/g);
+        }
+        console.log(text(str));*/
+    </script>
+</body>
+</html>

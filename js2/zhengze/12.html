@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <b>皮卡丘---sj</b>
+    <span>
+        <i>10</i>元
+        <input type="button" value='-' id='btn1'>
+        <input type="text" id='text' value='3'>
+        <input type="button" value='+' id='btn2'>
+        <strong id='box'>30</strong>
+    </span>
+    <a href="javascript:;">删除</a>
+    <script>
+        var aa=document.getElementsByTagName('i')[0];
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        var box=document.getElementById('box');
+        var text=document.getElementById('text');
+        //var num=0;
+        btn2.onclick=function(){
+            text.value++;
+            var val=text.value;
+            if(val>5){
+               num=5;
+            }
+            box.innerHTML=aa.innerHTML*val;
+        }
+        btn1.onclick=function(){
+            text.value--;
+            var val=text.value;
+            box.innerHTML=aa.innerHTML*val;
+            if(val<1){
+               var m=confirm('您确定不购买了吗');
+               if(m){
+                val=1;
+               }
+            }
+
+        }
+    </script>
+</body>
+</html>

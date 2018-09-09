@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>bind</title>
+</head>
+<body>
+   <script>
+       function bind(obj,event,fn){
+        if(obj.addEventListener){
+            obj.addEventListener(event, fn, false);//标准的绑定事件
+        }else{
+            obj.attachEvent('on'+event, function(){
+                fn.call(obj);
+            });
+        }
+       }
+   </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        //手机号
+        var arr='15722346258';
+        var re=/^1[345678]\d{9}$/g;
+        console.log(re.test(arr));
+
+        //QQ号
+        var str='14153400001';
+        var re=/^[123456]\d{4,10}$/g;
+        console.log(re.test(str));
+        //console.log(str.length)
+
+        //邮箱
+        var aa='lili@sina.com.cn';
+        var re=/^\w+@[a-z1-9]+(\.[a-z]+)+$/g;
+        console.log(re.test(aa));
+    </script>
+</body>
+</html>

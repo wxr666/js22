@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #box{
+            width: 420px;
+            height: 300px;
+            border:3px solid green;
+            margin:30px auto;
+        }
+        #box1{
+            width: 100%;
+            height: 70px;
+        }
+        span{
+            width: 140px;
+            height: 70px;
+            background:#ccc;
+            float:left;
+            color:white;
+            font-size:30px;
+            text-align:center;
+            line-height:70px;
+            cursor:pointer;
+        }
+        p{
+            width: 420px;
+            height: 230px;
+            font-size:40px;
+            text-align:center;
+            line-height:150px;
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+         <div id='box1'>
+             <span style='background:white;color:#ccc;'>1</span>
+             <span>2</span>
+             <span>3</span>
+         </div>
+         <div id='box2'>
+             <p style='display:block'>j1</p>
+             <p>j2</p>
+             <p>j3</p>
+         </div>
+    </div>
+    <script>
+        var box=document.getElementById('box');
+        var box1=document.getElementById('box1');
+        var box2=document.getElementById('box2');
+        var span=document.getElementsByTagName('span')
+        var p=document.getElementsByTagName('p')
+        for(var i=0;i<span.length;i++){
+           span[i].index=i;
+           span[i].onclick=function(){
+               for(var j=0;j<p.length;j++){
+                   p[j].style.display='none';
+                   span[j].style.background='#ccc';
+                   span[j].style.color='white';
+               }
+               p[this.index].style.display='block';
+               span[this.index].style.background='white';
+               span[this.index].style.color='#ccc';
+
+           }
+        }
+    </script>
+</body>
+</html>

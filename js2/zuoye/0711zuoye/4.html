@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var str='font-size';
+
+        function text(str){
+            var re=/-(\w+)/g;
+            var str1=str.replace(re,function($0,$1){
+               $1.toUpperCase();
+               //console.log($0);
+               //console.log($1);
+           });
+            return str1;
+        }
+        console.log(text(str));
+
+
+
+
+
+
+        /*function text(arr){
+           var arr1=arr.split('-');
+           var newArr=[];
+           for(var i=1;i<arr1.length;i++){
+              newArr=arr1[i].charAt(1).toUpperCase()+arr1[i].substring();
+           }
+           return newArr;
+        }
+        console.log(text(arr));*/
+
+    </script>
+</body>
+</html>

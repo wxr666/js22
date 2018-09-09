@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        li{
+            padding:5px;
+            cursor:pointer;
+        }
+        .active{
+            color:red;
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+        <ul id='ul1' class='ul1'>
+            <li><b>地区</b>
+                <ol>
+                  <li>东城</li>
+                  <li>西城</li>
+                  <li>朝阳</li>
+                  <li>昌平</li>
+                </ol>
+            </li>
+            <li><b>职位</b>
+                <ol>
+                  <li>美工设计</li>
+                  <li>前端设计</li>
+                  <li>后台开发</li>
+                </ol>
+            </li>
+            <li><b>薪资</b>
+                <ol>
+                  <li>4000</li>
+                  <li>5000</li>
+                  <li>6000</li>
+                </ol>
+            </li>
+        </ul>
+        <div id='list' class='list'>
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </div>
+    <script>
+        var ul1=document.getElementById('ul1');
+        var lis=ul1.children;//获取所有ul下的li
+        var list=document.getElementById('list');
+        var spans=list.getElementsByTagName('span');
+        //给ul下的li遍历
+        for(var i=0;i<lis.length;i++){
+            //console.log(lis[i])
+            lis[i].index=i;
+            var ol1=lis[i].getElementsByTagName('ol')[0];
+            var li2=ol1.getElementsByTagName('li');
+            for(var j=0;j<li2.length;j++){
+                li2[j].onclick=function(){
+                    var li3=this.parentNode.getElementsByTagName('li');
+                    for(var k=0;k<li3.length;k++){
+                        li3[k].className='';
+                    }
+                    this.className='active';
+                    spans[this.parentNode.parentNode.index].innerHTML=this.innerHTML;//span的下标==ol>li的每一个内容
+                }
+            }
+        }
+    </script>
+</body>
+</html>

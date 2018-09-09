@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class='box1 box3 box4'>大师傅士大夫是个</li>
+        <li>大师疯狂拉升发</li>
+        <li>的风格v想</li>
+        <li class='h1 h3 h4'>发的供货价格看</li>
+    </ul>
+
+
+    <ul>
+        <li class='box1 box3 box4'>大师傅士大夫是个</li>
+        <li>大师疯狂拉升发</li>
+        <li>的风格v想</li>
+        <li class='h1 h3 h4'>发的供货价格看</li>
+    </ul>
+    <script>
+        var lis=document.getElementsByTagName('li');
+        function text(document,classn){
+            var aa=document.getElementsByTagName('*');
+            var re=new RegExp('\\b'+classn+'\\b');
+            var arr=[];
+            for(var i=0;i<aa.length;i++){
+                if(re.test(aa[i].className)){
+                   arr.push(aa[i]);
+                }
+            }
+            return arr;
+        }
+        var arr2=text(document,'box1');
+        for(var j=0;j<arr2.length;j++){
+          arr2[j].style.background='red'
+        }
+
+
+
+
+
+
+
+        /*var arr='hafeiufhsjzsdkhawuiscbdhzs';
+        function text(arr){
+           var arr1=arr.split('').sort().join('');
+           var re=/(\w)\1+/g;
+           var num=0;
+           var val='';
+           var arr2=arr1.replace(re,function($0,$1){
+              if($0.length>num){
+                num=$0.length;
+                val=$1;
+              }
+           })
+           return{
+            val:val,
+            num:num
+           }
+        }
+        console.log(text(arr));*/
+    </script>
+</body>
+</html>

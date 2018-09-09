@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>获取getClass</title>
+    <style>
+      p{
+        color:green;
+        font-size:30px;
+      }
+    </style>
+</head>
+<body>
+    <div id='box' class='box box1 box2'>
+        <p class='a a1 a2'>《楚乔传》</p>
+        <p>《新三国》</p>
+        <p>《绣春刀》</p>
+        <p class='b b1 box2'>《赢天下》</p>
+    </div>
+    <script>
+        function getClass(obj,sClass){
+           var all=document.getElementsByTagName('*');
+           var re=RegExp("\\b"+sClass+"\\b");
+           //console.log(all)
+           var str=[];
+           for(var i=0;i<all.length;i++){
+              if(re.test(all[i].className)){
+                str.push(all[i])
+              }
+           }
+           return str;
+        }
+        console.log(getClass(document,'box2'))
+    </script>
+</body>
+</html>

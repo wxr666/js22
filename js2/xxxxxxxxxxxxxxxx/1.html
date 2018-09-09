@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <input type="button" value="添加文本" id='btn1'><input type="button" value="删除input" id='btn2'>
+    <ul id='list'></ul>
+    <script>
+        var btn1=document.getElementById('btn1');
+        var btn2=document.getElementById('btn2');
+        var list=document.getElementById('list');
+        var a=null;
+        var num=0;
+        btn1.onclick=function(){
+            num++;
+            //创建li
+            var li=document.createElement('li');
+            //创建Input
+            var inputs=document.createElement('input');
+            //把li添加到list里
+            list.appendChild(li);
+            //把input添加到li里
+            li.appendChild(inputs);
+             app=document.getElementsByTagName('input');
+             for(var i=0;i<app.length;i++){
+                app[i].onblur=function(){
+                    a=this;
+                }
+             }
+        }
+    </script>
+</body>
+</html>

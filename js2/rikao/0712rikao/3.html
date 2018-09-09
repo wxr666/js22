@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <p>替换前</p>
+    <textarea></textarea>
+    <p>替换后</p>
+    <textarea></textarea><br/>
+    <input type="button" value="替换按钮" id='btn'>
+    <script>
+        var btn=document.getElementById('btn');
+        var text=document.getElementsByTagName('textarea');
+        btn.onclick=function(){
+            var val=text[0].value;
+            var re=/人民|减税|税务战/g;
+            var arr=val.replace(re,function(n){
+                var temp='';
+                for(var i=0;i<n.length;i++){
+                    temp+='*';
+                }
+                return temp;
+            })
+            text[1].value=arr;
+        }
+        //人民日报：美国减税就是在挑起‘税务战’
+
+
+    </script>
+</body>
+</html>

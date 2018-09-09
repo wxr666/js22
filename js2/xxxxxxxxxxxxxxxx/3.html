@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul id='oUl'>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+        <li></li>
+    </ul>
+    <script>
+        var oUl=document.getElementById('oUl');
+        var li=document.getElementsByTagName('li');
+        var first=oUl.firstElementChild||firstChild;
+        first.style.background='red';
+        var last=oUl.lastElementChild||lastChild;
+        last.style.background='green';
+        var next=first.nextElementSibling||nextSibling;
+        next.style.background='pink';
+        var prev=last.previousElementSibling||previousSibling;
+        prev.style.background='skyblue';
+    </script>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #box{
+            display:none;
+        }
+    </style>
+</head>
+<body>
+    <input type="button" value='点击' id='btn'>
+    <ul id='box'>
+        <li color='red'>红色</li>
+        <li color='green'>绿色</li>
+        <li color='skyblue'>蓝色</li>
+        <li color='pink'>粉色</li>
+    </ul>
+    <script>
+        var btn=document.getElementById('btn');
+        var box=document.getElementById('box');
+        var lis=document.getElementsByTagName('li');
+        function stopPropagation(ev){
+            if(ev.stopPropagation){
+                ev.stopPropagation;
+            }else{
+                ev.cancelBubble=true;
+            }
+        }
+        btn.onclick=function(){
+            box.style.display='block';
+            for(var i=0;i<lis.length;i++){
+               lis[i].onclick=function(){
+                var val=this.getAttribute('color')
+                document.body.style.background=val;
+               }
+            }
+        }
+
+    </script>
+</body>
+</html>

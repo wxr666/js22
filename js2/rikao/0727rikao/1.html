@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        #box{
+            width: 300px;
+            height: 300px;
+            margin:30px auto;
+            position:relative;
+        }
+        label,p{
+              float:right;
+              margin-right:10px;
+              margin-top:15px;
+              font-size:12px;
+        }
+        input{
+            margin-left:10px;
+            line-height:20px;
+            outline:none;
+        }
+        button{
+            float:right;
+            margin-right:30px;
+            margin-top:30px;
+            outline:none;
+            border:none;
+            background:blue;
+            text-align:center;
+            color:white;
+            width: 154px;
+            height: 35px;
+            line-height: 35px;
+            cursor:pointer;
+        }
+        p span{
+              display:inline-block;
+              width: 54px;
+              height: 22px;
+              line-height: 22px;
+              background:skyblue;
+              text-align:center;
+              color:white;
+        }
+        #text2{
+            margin-top:-14px;
+        }
+        #yzm{
+            width: 50px;
+            margin-right:18px;
+        }
+        #hezi{
+            width: 100px;
+            height: 24px;
+            border:1px solid #ccc;
+            float:right;
+            text-align:center;
+            font-size:24px;
+            color:blue;
+            cursor:pointer;
+        }
+        #w1{
+            position:absolute;
+            top:-10px;
+            right:-80px;
+            font-weight:normal;
+            color:#ccc;
+            display:block;
+        }
+        #w2{
+            position:absolute;
+            top:30px;
+            right:-80px;
+            font-weight:normal;
+            color:#ccc;
+        }
+        #w3{
+            position:absolute;
+            top:114px;
+            right:-80px;
+            font-weight:normal;
+            color:#ccc;
+        }
+        a{
+          padding:4px 7px;
+          background:red;
+          color:white;
+          font-weight:normal;
+          border-radius:50%;
+          display: inline-block;
+          margin-right:6px;
+
+        }
+    </style>
+</head>
+<body>
+    <div id='box'>
+        <label>会员名:<input type="text" id='text'></label><h6 id='w1'><a>X</a>不能为空</h6>
+        <label>登录密码:<input type="text" id='text1'></label><h6 id='w2'><a>X</a>不能为空</h6>
+        <p>
+            <span style='background:blue'>弱</span>
+            <span>中</span>
+            <span>强</span>
+        </p>
+        <label>确认密码:<input type="text" id='text2'></label><h6 id='w3'><a>X</a>不能为空</h6>
+        <label>验证码:<input type="text" id='yzm'><b id='hezi'>EdWE</b></label>
+        <button id="btn">同意协议并注册</button>
+    </div>
+    <script>
+        var hezi=document.getElementById('hezi');
+        hezi.onclick=function(){
+            var arr=['q','w','e','r','z','x','c','b','n','m','Q','W','E','R','T','Y','U','I','O','P','L','Z','X','C','V','B','N','M'];
+            function text(arr,n){
+               var arr1=[];
+               for(var i=0;i<n;i++){
+                var sj=Math.floor(Math.random()*arr.length)
+                if(arr.indexOf(sj)===-1){
+                    arr1.push(arr[sj])
+                }
+               }
+               return arr1.join('');
+            }
+            hezi.innerHTML=text(arr,4)
+        }
+        var text=document.getElementById('text');
+        var text1=document.getElementById('text1');
+        var text2=document.getElementById('text2');
+        var w1=document.getElementById('w1');
+        var span=document.getElementsByTagName('span')
+        var text=document.getElementById('text');
+        var re={
+            t0:/^[!@#\$%\^&\*]$/,
+            t1:/\d+/,
+            t2:/[a-z]+/i,
+            t3:/[!@#\$%\^&\*]/
+        }
+
+        text.onkeyup=function(){
+            if(!text.value==''){
+                w1.style.display='none';
+
+            }else{
+                w1.style.display='block';
+            }
+        }
+        text1.onkeyup=function(){
+            if(!text1.value==''){
+                w2.style.display='none';
+
+            }else{
+                w2.style.display='block';
+            }
+        }
+        text2.onkeyup=function(){
+            if(!text2.value==''){
+                w3.style.display='none';
+
+            }else{
+                w3.style.display='block';
+            }
+            var val1=text2.value;
+            var num=0;
+            if(re.t1.test(val1)){
+                num++;
+            }
+            if(re.t2.test(val1)){
+                num++;
+            }
+            if(re.t3.test(val1)){
+                num++;
+            }
+            for(var i=0;i<span.length;i++){
+               span[i].style.background='skyblue';
+            }
+            switch(num){
+                case 1:
+                span[0].style.background='blue';
+                break;
+                case 2:
+                span[1].style.background='blue';
+                break;
+                case 3:
+                span[2].style.background='blue';
+                break;
+            }
+        }
+    </script>
+</body>
+</html>

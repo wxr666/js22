@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>封装getClass方法</title>
+</head>
+<body>
+    <ul id='box'>
+        <li class='a1 a2 a3'>蓝蓝</li>
+        <li class='aa'>天天</li>
+        <li class='b1 b2 a3'>白白</li>
+        <li class='bb'>云云</li>
+    </ul>
+    <script>
+        var box=document.getElementById('box');
+        function getClass(obj,n){
+            var nclass=document.getElementsByTagName('*');
+            var arr='';
+            for(var i=0;i<nclass.length;i++){
+            if(nclass[i]===n){
+                arr.push(nclass[i])
+            }
+           }
+           return arr;
+        }
+        console.log(getClass('box','a3'))
+
+    </script>
+</body>
+</html>

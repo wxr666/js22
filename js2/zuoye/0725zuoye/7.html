@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+    var arr="hello world";
+    function strExtend(arr){
+        var arr1=arr.split(' ').join('')
+        //console.log(arr1)
+        var re=/(.{1})/g;
+        var arr2=arr1.replace(re,function($0,$1){
+            return $1+" ";
+        });
+      return arr2;
+    }
+    console.log(strExtend(arr))
+    </script>
+</body>
+</html>

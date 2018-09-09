@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        span{
+            cursor:pointer;
+        }
+    </style>
+</head>
+<body>
+    <input type="text" placeholder='请输入邮箱账户名' id='text1'>
+    <input type="button" value='登陆' id='btn'>
+    <ul id='list'>
+        <li>amdd@souhu.com.cn</li>
+        <li>nxv_kc@sina.com</li>
+        <li>yr32dsd8@167.com</li>
+        <li>189233@dsf.com</li>
+    </ul>
+    <script>
+        var text1=document.getElementById('text1');
+        var btn=document.getElementById('btn');
+        var list=document.getElementById('list');
+        var lis=document.getElementsByTagName('li');
+        //var li=list.createElement('li');
+        //var li.innerHTML=val;
+        //list.appendChild(li);
+        var re=/^\w+@\w+(\.\w+){1,3}$/g;
+        btn.onclick=function(){
+            var val=text1.value;
+            //判断邮箱格式
+            if(!re.test(val)){
+                alert('请输入正确的邮箱账户名');
+                text1.value='';
+                return false;
+            }
+            //判断邮箱是否已存在
+            for(var i=0;i<lis.length;i++){
+                if(lis[i].firstChild.nodeValue===val){
+                   alert('邮箱已存在');
+                   text1.value='';
+                   return false;
+                }
+            }
+            //点击x删除li
+            var li=document.createElement('li');
+            li.innerHTML=val+'<span>X</span>;'
+            list.appendChild(li);
+            var span=document.getElementsByTagName('span')[0];
+            span.onclick=function(){
+               list.removeChild(span.parentNode)
+            }
+            text1.value='';
+
+        }
+
+
+    </script>
+</body>
+</html>

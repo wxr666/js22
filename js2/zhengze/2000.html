@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li class='a1'></li>
+        <li class='bb'></li>
+        <li class='ft'></li>
+        <li class='a1'></li>
+        <li class='nh'></li>
+    </ul>
+    <script>
+        /*function getClass(document,n){
+           var aa=document.getElementsByTagName('*');
+           var arr=[];
+           for(var i=0;i<aa.length;i++){
+            if(aa[i].className===n){
+                arr.push(aa[i])
+            }
+           }
+           return arr;
+        }
+        var bb=getClass(document,'a1');
+
+        for(var i=0;i<bb.length;i++){
+             bb[i].style.background='red'
+        }*/
+
+
+
+
+
+
+       //对象
+        /*var obj={
+            name:'四大金刚',
+            age:18,
+            tizhong:99,
+            fn:function(){
+                alert('执行到我了哈哈')
+            }
+        }
+        console.log(obj.name);
+        console.log(obj['tizhong']);//两种格式
+        obj.fn();
+*/
+
+
+        //正则手机号
+        /*var arr=15727398658;
+        var re=/^1[34578]\d{9}$/;
+        var arr1=re.test(arr);
+        console.log(arr1)*/
+
+
+        //创建一个面向对象
+        /*var obj={
+            name:'金刚娃娃',
+            age:8,
+            fn:function(){
+                alert(this.name)
+            }
+        }
+        obj.fn();
+
+
+
+        var obj=new Object();
+            obj.name='白天不努力，晚上徒伤悲';
+            obj.age=1000;
+            obj.fun=function(){
+                alert(this.name)
+            }
+        obj.fun();*/
+
+
+        /*//工厂方式封装
+       function cearPerson(name){
+            //准备原材料
+            var obj=new Object();
+                obj.name=name;
+                obj.age=33;
+                //加工
+                obj.text=function(){
+                    alert(this.name);
+                }
+                //出厂
+                return obj;
+        }
+        var a1=cearPerson('喜羊羊');
+        a1.text();
+        var a2=cearPerson('呼叫，村长。。。灰太狼来了');
+        a2.text();
+*/
+
+        //构造函数
+        function CeartePerson(name){
+            this.name=name;
+            this.fn=function(){
+                alert(this.name)
+            }
+        }
+        var a1=new CeartePerson('润物细无声')
+        a1.fn();
+
+
+        //用原型求和
+        /*var arr=[1,2,3,4,5];
+        var arr2=[2,2,2,2,2]
+        Array.prototype.sum=function(){
+            var result=0;
+            for(var i=0;i<this.length;i++){
+                result+=this[i];
+            }
+            return result;
+        }
+        alert(arr.sum());
+        alert(arr2.sum());*/
+
+
+        /*function CearPerson(name){
+            var obj={
+                name:name,
+                age:777,
+                fn:function(){
+                    alert(this.name);
+                }
+            }
+            return obj;
+        }
+        var a1=new CearPerson('下午来袭');
+        a1.fn();
+        var a2=new CearPerson('白天不努力，晚上徒伤悲！！！！');
+        a2.fn();*/
+
+
+        /*function Text(color,r){
+            this.color=color;
+            this.r=r;
+        }
+        Text.prototype.getColor=function (){
+            return this.color;
+        }
+        Text.prototype.setColor=function (color){
+            this.color=color;
+        }
+        Text.prototype.getArea=function (){
+            return Math.PI*this.r*this.r;
+        }
+        var a1=new Text('#ccc',1);
+        console.log(a1.getColor());
+        a1.setColor('green');
+        console.log(a1.getColor());
+        console.log(a1.getArea());*/
+
+
+
+        //用indexof方法做
+        /*var arr=['刘备','张飞','关羽'];
+        Array.prototype.indexof=function(val){
+            for(var i=0;i<this.length;i++){
+                if(this[i]===val){
+                    return i;
+                }
+            }
+            return -1;
+        }
+        console.log(arr.indexof('张飞'))*/
+
+
+         //unshift方法
+         /*var arr=['a','b','c'];
+         Array.prototype.unshift=function(){
+            var len=this.length;
+            for(var i=len-1;i>=0;i--){
+                this[i+arguments.length]=this[i];
+            }
+            for(var i=0;i<arguments.length;i++){
+                this[i]=arguments[i];
+            }
+            return this;
+         }
+         console.log(arr.unshift('d','e'))*/
+
+
+
+
+        /*var arr=[1,2,3];//[object Array]
+        var obj={};//[object Object]
+        var re=new RegExp();//[object RegExp]
+        var date=new Date();//[object Date]
+        console.log(Object.prototype.toString.call(arr));
+        console.log(Object.prototype.toString.call(arr).slice(8,-1));*/
+
+
+
+
+    </script>
+</body>
+</html>

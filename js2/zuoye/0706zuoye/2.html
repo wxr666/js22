@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            list-style:none;
+        }
+        ul{
+            margin:10px;
+        }
+        ul li{
+            line-height:30px;
+        }
+        ul li a{
+            color:red;
+            margin-left:40px;
+        }
+    </style>
+</head>
+<body>
+    <ul id='oUl'>
+        <li>1我热爱学习，就像老鼠爱大米<a href="javascript:;" class='btn'>点击我隐藏</a></li>
+        <li>2我热爱学习，就像老鼠爱大米<a href="javascript:;" class='btn'>点击我隐藏</a></li>
+        <li>3我热爱学习，就像老鼠爱大米<a href="javascript:;" class='btn'>点击我隐藏</a></li>
+        <li>4我热爱学习，就像老鼠爱大米<a href="javascript:;" class='btn'>点击我隐藏</a></li>
+    </ul>
+    <script>
+        var oUl=document.getElementById('oUl');
+        var btn=document.getElementsByClassName('btn');
+        var lis=document.getElementsByTagName('li');
+        for(var i=0;i<btn.length;i++){
+            btn[i].onclick=function(){
+                 this.parentNode.style.display='none';
+          }
+        }
+
+    </script>
+</body>
+</html>

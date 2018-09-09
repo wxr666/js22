@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8" />
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var arr='font-size';
+        function text(arr){
+           var re=/\w+/g;
+           arr.replace(re,function($0,$1){
+              console.log($0);
+              console.log($1);
+              //if($0.length)
+              $1.toUpperCase()
+            })
+           //return arr1;
+        }
+        console.log(text(arr));
+    </script>
+</body>
+</html>
